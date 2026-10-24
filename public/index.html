@@ -2,12 +2,12 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>GREAT v0.1.0</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #17212b; color: #fff; height: 100vh; overflow: hidden; }
-  .screen { display: none; height: 100vh; flex-direction: column; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: #17212b; color: #fff; height: 100vh; height: 100dvh; overflow: hidden; }
+  .screen { display: none; height: 100vh; height: 100dvh; flex-direction: column; }
   .screen.active { display: flex; }
   
   /* ЭКРАН РЕГИСТРАЦИИ */
@@ -51,7 +51,17 @@
   .msg.out { align-self: flex-end; background: #2b5278; border-bottom-right-radius: 4px; }
   .msg.in { align-self: flex-start; background: #182533; border-bottom-left-radius: 4px; }
   .msg .time { display: inline-block; font-size: 10px; opacity: .6; margin-left: 6px; }
-  .composer { padding: 10px 12px; display: flex; gap: 8px; background: #17212b; border-top: 1px solid #0e1621; }
+  
+  /* ПАНЕЛЬ ВВОДА */
+  .composer { 
+    padding: 10px 12px; 
+    padding-bottom: max(10px, env(safe-area-inset-bottom)); /* Отступ для телефонов */
+    display: flex; 
+    gap: 8px; 
+    background: #17212b; 
+    border-top: 1px solid #0e1621; 
+    flex-shrink: 0;
+  }
   #msgInput { flex: 1; padding: 12px 16px; border-radius: 22px; border: none; background: #242f3d; color: #fff; font-size: 15px; outline: none; }
   .send { width: 46px; height: 46px; border-radius: 50%; border: none; background: #2aabee; color: #fff; font-size: 20px; cursor: pointer; flex-shrink: 0; }
   .back { background: none; border: none; color: #2aabee; font-size: 26px; cursor: pointer; padding: 0 6px; }
